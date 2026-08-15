@@ -44,7 +44,7 @@ See the folder 'postgresql\_database' in this project. Run from that folder the 
 
 This will setup the _PostgreSQL_ database.
 
-B) Backend C#/.NET WebApi
+B) Backend C#/.NET WebApi  
 .NET10 is needed, check wether this installed with the command:  
 _dotnet --list-sdks_
 
@@ -56,14 +56,15 @@ When the tool is installed, run the command for a _database migration:_
 
 **dotnet ef database update**
 
-Or use the longer command (and replace *your_workspace* by the location of your workspace):
-**dotnet ef database update -p "*your_workspace*\woodcuts-and-engravings-auction-angular-dotnet\backend\Infrastructure\Infrastructure.csproj" --startup-project "*your_workspace*\woodcuts-and-engravings-auction-angular-dotnet\backend\AuctionWoodcutsEngravingsWebApi\AuctionWoodcutsEngravingsWebApi.csproj"**
+Or use the longer command (and replace \*_your\_workspace\*_ by the location of your workspace):
+
+_dotnet ef database update -p "\*your\_workspace\*\\woodcuts-and-engravings-auction-angular-dotnet\\backend\\Infrastructure\\Infrastructure.csproj" --startup-project "\*your\_workspace\*\\woodcuts-and-engravings-auction-angular-dotnet\\backend\\AuctionWoodcutsEngravingsWebApi\\AuctionWoodcutsEngravingsWebApi.csproj"_
 
 For more information see the link below:
 
 [https://learn.microsoft.com/en-us/ef/core/cli/dotnet](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
 
-C) Angular 22 application.  
+C) Angular 22 application.
 
 **Angular 22** needs a **Node.js** version of at least _22.22.3_
 
