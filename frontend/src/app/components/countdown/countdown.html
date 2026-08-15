@@ -1,0 +1,10 @@
+<span class="countdown font-mono text-2xl" [style.color]="minutes() === 0 ? 'red' : '#000'">
+    @if(minutes() > 0) {
+        <span [style.--value]="minutes()" aria-live="polite" aria-label="24">{{ minutes() }}</span>
+        m
+    }                      
+    @if(seconds() > 0) {
+        <span [style.--value]="seconds()" [style.color]="minutes() === 0 ? 'red' : '#000'" aria-live="polite" aria-label="59">{{ seconds() }}</span>
+        s
+    }
+</span>

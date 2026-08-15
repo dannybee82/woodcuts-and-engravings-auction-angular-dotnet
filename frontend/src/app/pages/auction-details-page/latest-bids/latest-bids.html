@@ -1,0 +1,46 @@
+<section aria-labelledby="latest-bids-heading" class="flex flex-col gap-3">
+  <h2 id="latest-bids-heading" class="font-semibold text-lg">
+    Latest Bids
+  </h2>
+  <div class="min-h-[300px] w-full min-w-0">
+    @if (latestBids().length) {      
+      <ul class="flex flex-col gap-2" role="list">
+        @for (
+          bid of latestBids();
+          track $index;
+          let rank = $index
+        ) {
+          <li class="flex items-center justify-between gap-3 rounded-lg bg-base-200 px-4 py-3 transition-colors hover:bg-base-300 li-bids min-w-0 overflow-hidden">
+            <div class="flex items-center gap-3">
+              <span
+                class="badge badge-sm shrink-0"
+                [class.badge-primary]="rank === 0"
+                [class.badge-neutral]="rank !== 0"
+                aria-label="Rank {{ rank + 1 }}">
+                  #{{ rank + 1 }}
+              </span>
+              <span class="font-medium truncate">
+                {{ bid.userName }}
+              </span>
+              @if (rank === 0) {
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                </svg>
+              }
+            </div>
+            <span class="font-semibold text-primary shrink-0 ms-3">
+                {{ bid.amount | currency:'EUR':'symbol':'1.2-2' }}
+            </span>
+          </li>
+        }
+      </ul>
+    } @else {
+      <div class="flex flex-col items-center gap-2 rounded-lg bg-base-200 text-base-content/40 select-none h-[300px]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586 a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        <span class="text-sm font-medium">No bids placed yet.</span>
+      </div>
+    }
+  </div>
+</section>

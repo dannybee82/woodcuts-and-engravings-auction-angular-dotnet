@@ -1,0 +1,25 @@
+@media (min-width: 475px) and (max-width: 639px) {
+    .responsive-ul {
+        width: auto!important;
+    }
+
+    .responsive-span {
+        display: none!important;
+    }
+
+    li.banner {
+        display: none!important;
+    }
+}
+
+.active {
+    background-color: #3b82f6!important;
+    color: white!important;
+}
+
+.banner {
+  display: block;
+  max-width:160px;
+  width: auto;
+  height: auto;
+}

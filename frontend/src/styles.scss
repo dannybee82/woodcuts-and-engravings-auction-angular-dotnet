@@ -1,0 +1,11 @@
+/* Add these Tailwind directives at the top */  
+@use "tailwindcss";
+@tailwind base;  
+@tailwind components;  
+@tailwind utilities;
+@plugin "daisyui";
+
+@theme { //Specifiek voor Tailwind CSS v4.
+    //Dit maakt 'xs' / Extra Small Screens mogelijk in de applicatie
+    --breakpoint-xs: 475px;
+}

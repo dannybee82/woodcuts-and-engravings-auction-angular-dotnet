@@ -1,0 +1,90 @@
+# AuctionWoodcutsEngravingsAngularDotnetCRUD
+
+An auction application of woodcuts and engravings that can be run either locally or with _Docker Desktop/Docker_. 
+
+New auctions can be added and updated. Bids can be placed on auctions (with SignalR).
+
+The backend (C#/.NET10 with _Hangfire_) can close an auction that has ended.
+
+This application consists of:
+
+1.  Backend: C#/.NET10 WebApi (Clean Architecture) + EntityFramework + Hangfire.
+2.  Frontend: _Angular application_ ([Angular CLI](https://github.com/angular/angular-cli) version 22.1.4) that makes use of the HttpResourceApi + _daisyUI/TailwindCSS_.
+3.  Database: _PostgreSQL_ (version 17).
+
+Functionality:
+
+*   Create, update and delete auctions.
+*   From the frontend application auctions can be sorted and filtered.
+*   Upload images (as byte array).
+*   The C#/.NET10 WebApi uses Hangfire for schelduling jobs and closing Auctions.
+*   Both the Angular application and the C#/.NET10 WebApi uses SignalR for the auction bids.
+
+From the WebApi auctions bids by users can be simulated and auctions can be stopped within 3 minutes. 
+
+See the endpoints: _/helpers/SimulateBidForUser_ and _/helpers/EndAuctionSoon_
+
+Further are the pages of the frontend application responsive.
+
+See the images at the root of this project for examples.
+
+## Running the application
+
+### _1\. Docker Desktop / Docker_
+
+To see the application in action within a _Docker Container_, use the command from the root of this project:
+
+**docker compose up --build -d**
+
+### _2\. Local installation_
+
+A) PostgreSQL database  
+See the folder 'postgresql\_database' in this project. Run from that folder the command:  
+**docker compose up --build -d**
+
+This will setup the _PostgreSQL_ database.
+
+B) Backend C#/.NET WebApi
+.NET10 is needed, check wether this installed with the command:  
+_dotnet --list-sdks_
+
+When not installed, download and install it from the link: [download .NET10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
+
+Install the **dotnet ef-tool** - version: 10.0.10 or above
+
+When the tool is installed, run the command for a _database migration:_
+
+**dotnet ef database update**
+
+Or use the longer command (and replace *your_workspace* by the location of your workspace):
+**dotnet ef database update -p "*your_workspace*\woodcuts-and-engravings-auction-angular-dotnet\backend\Infrastructure\Infrastructure.csproj" --startup-project "*your_workspace*\woodcuts-and-engravings-auction-angular-dotnet\backend\AuctionWoodcutsEngravingsWebApi\AuctionWoodcutsEngravingsWebApi.csproj"**
+
+For more information see the link below:
+
+[https://learn.microsoft.com/en-us/ef/core/cli/dotnet](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
+
+C) Angular 22 application.  
+
+**Angular 22** needs a **Node.js** version of at least _22.22.3_
+
+**Command to install Angular and dependencies (from the frontend folder)**
+
+_npm install_
+
+or shorter:
+
+_npm i_
+
+**Command to run the application (from the frontend folder):**
+
+_ng serve --open_
+
+or shorter:
+
+_ng s --o_
+
+### **Changelog:**
+
+_August 2026_
+
+*   First commit.

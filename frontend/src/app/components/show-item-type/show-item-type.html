@@ -1,0 +1,21 @@
+<div [class]="`flex flex-row ${cssJustify()}`">
+    @switch (itemType()) {
+        @case (getEnum().WOODCUT) {
+            <img [src]="'/icons/woodcut.png'" alt="Woodcut Icon" [style.width.rem]="size() * 0.25" [style.height.rem]="size() * 0.25" title="Woodcut">
+            <span class="badge badge-neutral ms-1">Woodcut</span>
+        }
+        @case (getEnum().ENGRAVING) {
+          <img [src]="'/icons/engraving.png'" alt="Engraving Icon" [style.width.rem]="size() * 0.25" [style.height.rem]="size() * 0.25" title="Engraving">
+          <span class="badge badge-neutral ms-1">Engraving</span>
+        }
+        @case (getEnum().UNKNOWN) {
+          <img [src]="'/icons/unknown.png'" alt="Unknown Icon" [style.width.rem]="size() * 0.25" [style.height.rem]="size() * 0.25" title="Unknown">
+          <span class="badge badge-neutral ms-1">Unknown</span>
+        }
+        @case (getEnum().ALL) {}
+        @default {
+          <img [src]="'/icons/unknown.png'" alt="Unknown Icon" [style.width.rem]="size() * 0.25" [style.height.rem]="size() * 0.25" title="Unknown">
+          <span class="badge badge-neutral ms-1">Unknown</span>
+        }
+    }
+</div>

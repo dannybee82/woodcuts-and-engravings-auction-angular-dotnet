@@ -1,0 +1,11 @@
+services:
+  postgresql_db_auction_woodcuts_engravings:
+    image: postgres:17.10
+    container_name: postgresql_db_auction_woodcuts_engravings
+    restart: unless-stopped
+    environment:      
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Test2026!
+      - POSTGRES_DB=AuctionWoodcutsEngravings
+    ports: 
+      - "5432:5432"

@@ -1,0 +1,280 @@
+@if(auctionItemsService.isLoading()) {
+  <app-loading-spinner />
+}
+<div class="p-4 space-y-4">
+  <div class="flex flex-wrap items-center justify-between gap-2">
+    <h1 class="text-2xl font-bold">Auction Overview (open auctions and unsold auctions)</h1>
+    <div class="flex items-center gap-2 text-sm">
+      <span class="text-base-content/70">Rows per page:</span>
+      <select class="select select-bordered select-sm"
+              (change)="changePageSize($event)">
+        <option value="5"  [selected]="pageSize() === 5">5</option>
+        <option value="10" [selected]="pageSize() === 10">10</option>
+        <option value="25" [selected]="pageSize() === 25">25</option>
+      </select>
+    </div>
+  </div>
+  @if (totalItems() === 0) {
+    <div class="flex flex-col items-center justify-center gap-3 py-20 text-base-content/50">
+      <!-- Heroicon: inbox -->
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+           stroke-width="1.5" stroke="currentColor" class="size-16">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0
+                 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1
+                 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0
+                 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0
+                 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0
+                 0-.1.661Z" />
+      </svg>
+      <p class="text-lg font-medium">No auction items found</p>
+      <p class="text-sm">Items will appear here once they are added.</p>
+    </div>
+  }
+  @if (totalItems() > 0) {
+    <div class="hidden md:block overflow-x-auto rounded-box border border-base-300 shadow-sm">
+      <table class="table table-zebra w-full">
+        <thead class="bg-base-200 text-base-content">
+          <tr>
+            <th class="w-12">#</th>
+            <th>Title</th>
+            <th>Type</th>
+            <th class="text-right">Current Price</th>
+            <th class="text-center">Bids</th>
+            <th class="text-center">Status</th>
+            <th>Expiration</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of pagedItems(); track item.id) {
+            <tr class="hover">
+              <td class="font-mono text-sm text-base-content/60">{{ item.id }}</td>
+              <td class="font-medium">{{ item.details.title }}</td>
+              <td>
+                <app-show-item-type [itemType]="item.details.itemType" [size]="7" [cssJustify]="'justify-center items-center'" />
+              </td>
+              <td class="text-right font-semibold tabular-nums">
+                {{ item.currentPrice | currency:'EUR':'symbol':'1.2-2' }}
+              </td>
+              <td class="text-center tabular-nums">{{ item.bidCount }}</td>
+              <td class="text-center">
+                @if (item.isOpen) {
+                  <span class="badge badge-success gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                         fill="currentColor" class="size-3">
+                      <path d="M14.5 1A4.5 4.5 0 0 0 10 5.5V9H3a2 2 0 0 0-2 2v6a2 2 0 0
+                               0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-1.5V5.5a3 3 0 1 1
+                               6 0v2.75a.75.75 0 0 0 1.5 0V5.5A4.5 4.5 0 0 0 14.5 1Z" />
+                    </svg>
+                    Open
+                  </span>
+                } @else {
+                  <span class="badge badge-error gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                         fill="currentColor" class="size-3">
+                      <path fill-rule="evenodd"
+                            d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0
+                               2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0
+                               10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Closed
+                  </span>
+                }
+              </td>
+              <td class="text-sm text-base-content/70">
+                {{ item.expiration.expirationText }}
+              </td>
+              <td>
+                <div class="flex items-center justify-center gap-1">
+                  <button class="btn btn-ghost btn-xs text-info"
+                          title="Edit item"
+                          (click)="onUpdate(item)">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                         fill="currentColor" class="size-4">
+                      <path d="M2.695 14.763l-1.262 3.154a.5.5 0 0 0 .65.65l3.155-1.262a4
+                               4 0 0 0 1.343-.885L17.5 5.5a2.121 2.121 0 0 0-3-3L3.58
+                               13.42a4 4 0 0 0-.885 1.343Z" />
+                    </svg>
+                  </button>
+                  <button class="btn btn-ghost btn-xs text-error"
+                          title="Delete item"
+                          (click)="onDelete(item)">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                         fill="currentColor" class="size-4">
+                      <path fill-rule="evenodd"
+                            d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75
+                               0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75
+                               2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03
+                               41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0
+                               1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69
+                               0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58
+                               7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75
+                               0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="grid grid-cols-1 gap-4 md:hidden">
+      @for (item of pagedItems(); track item.id) {
+        <div class="card card-bordered bg-base-100 shadow-sm">
+          <div class="card-body gap-3 p-4">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <p class="font-bold text-base leading-tight">{{ item.details.title }}</p>
+                <p class="text-xs text-base-content/50 font-mono mt-0.5">#{{ item.id }}</p>
+              </div>
+              @if (item.isOpen) {
+                <span class="badge badge-success shrink-0">Open</span>
+              } @else {
+                <span class="badge badge-error shrink-0">Closed</span>
+              }
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <app-show-item-type [itemType]="item.details.itemType" [size]="5" [cssJustify]="'justify-between items-center'" />
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <span class="text-base-content/60 w-24 shrink-0">Current Price</span>
+              <span class="font-semibold tabular-nums">{{ item.currentPrice | currency:'EUR':'symbol':'1.2-2' }}</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <span class="text-base-content/60 w-24 shrink-0">Bids</span>
+              <span class="tabular-nums">{{ item.bidCount }}</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <span class="text-base-content/60 w-24 shrink-0">Expires</span>
+              <span>{{ item.expiration.expirationText }}</span>
+            </div>
+            @if (item.details.description) {
+              <p class="text-sm text-base-content/70 line-clamp-2">
+                {{ item.details.description }}
+              </p>
+            }
+            <div class="card-actions justify-end pt-1 border-t border-base-200">
+              <button class="btn btn-outline btn-info btn-sm gap-1"
+                      (click)="onUpdate(item)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                     fill="currentColor" class="size-4">
+                  <path d="M2.695 14.763l-1.262 3.154a.5.5 0 0 0 .65.65l3.155-1.262a4
+                           4 0 0 0 1.343-.885L17.5 5.5a2.121 2.121 0 0 0-3-3L3.58
+                           13.42a4 4 0 0 0-.885 1.343Z" />
+                </svg>
+                Edit
+              </button>
+              <button class="btn btn-outline btn-error btn-sm gap-1"
+                      (click)="onDelete(item)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                     fill="currentColor" class="size-4">
+                  <path fill-rule="evenodd"
+                        d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75
+                           0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75
+                           2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03
+                           41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0
+                           1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69
+                           0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58
+                           7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75
+                           0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
+                        clip-rule="evenodd" />
+                </svg>
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+      <p class="text-sm text-base-content/60">
+        Showing
+        <span class="font-medium text-base-content">
+          {{ (currentPage() - 1) * pageSize() + 1 }}–{{ [currentPage() * pageSize(), totalItems()] | min }}
+        </span>
+        of
+        <span class="font-medium text-base-content">{{ totalItems() }}</span>
+        items
+      </p>
+      <div class="join">
+        <button class="join-item btn btn-sm"
+                [disabled]="currentPage() === 1"
+                (click)="goToPage(1)"
+                title="First page">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+               fill="currentColor" class="size-4">
+            <path fill-rule="evenodd"
+                  d="M15.79 14.77a.75.75 0 0 1-1.06.02l-4.5-4.25a.75.75 0 0 1
+                     0-1.08l4.5-4.25a.75.75 0 1 1 1.04 1.08L11.832 10l3.938
+                     3.71a.75.75 0 0 1 .02 1.06Zm-6 0a.75.75 0 0 1-1.06.02l-4.5-4.25a.75.75
+                     0 0 1 0-1.08l4.5-4.25a.75.75 0 1 1 1.04 1.08L5.832 10l3.938
+                     3.71a.75.75 0 0 1 .02 1.06Z"
+                  clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="join-item btn btn-sm"
+                [disabled]="currentPage() === 1"
+                (click)="prevPage()"
+                title="Previous page">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+               fill="currentColor" class="size-4">
+            <path fill-rule="evenodd"
+                  d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1
+                     1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1
+                     1.06 0Z"
+                  clip-rule="evenodd" />
+          </svg>
+        </button>
+        @for (page of visiblePages(); track page) {
+          <button class="join-item btn btn-sm"
+                  [class.btn-active]="page === currentPage()"
+                  (click)="goToPage(page)">
+            {{ page }}
+          </button>
+        }
+        <button class="join-item btn btn-sm"
+                [disabled]="currentPage() === totalPages()"
+                (click)="nextPage()"
+                title="Next page">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+               fill="currentColor" class="size-4">
+            <path fill-rule="evenodd"
+                  d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25
+                     4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                  clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="join-item btn btn-sm"
+                [disabled]="currentPage() === totalPages()"
+                (click)="goToPage(totalPages())"
+                title="Last page">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+               fill="currentColor" class="size-4">
+            <path fill-rule="evenodd"
+                  d="M4.21 14.77a.75.75 0 0 0 1.06.02l4.5-4.25a.75.75 0 0 0
+                     0-1.08l-4.5-4.25a.75.75 0 1 0-1.04 1.08L8.168 10 4.23
+                     13.71a.75.75 0 0 0-.02 1.06Zm6 0a.75.75 0 0 0 1.06.02l4.5-4.25a.75.75
+                     0 0 0 0-1.08l-4.5-4.25a.75.75 0 1 0-1.04 1.08L14.168 10l-3.938
+                     3.71a.75.75 0 0 0-.02 1.06Z"
+                  clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  }
+</div>
+<app-toast />
+@if(deleteModal()) {
+    <app-delete-modal 
+        [title]="deleteModal()!.title" 
+        [message]="deleteModal()!.message"
+        [additionalText]="deleteModal()!.additionalText"
+        [cancelText]="deleteModal()!.cancelText" 
+        [deleteText]="deleteModal()!.deleteText"
+        (delete)="execDelete($event)" 
+    />
+}

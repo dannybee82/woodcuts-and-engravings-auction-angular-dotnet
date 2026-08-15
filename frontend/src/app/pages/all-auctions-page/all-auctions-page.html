@@ -1,0 +1,71 @@
+<div class="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col justify-between w-full ps-1 pe-1">
+    <app-filters />
+    <div class="flex flex-row gap-1 sm:ms-3 xs:ms-3 shadow-sm mt-1">
+        <app-pagination />
+        <app-pager />
+    </div>
+</div>
+<div class="flex-row justify-items-end mt-2 mb-2 ms-2 responsive-container">    
+    @if(auctionItemsService.isLoading()) {
+        <app-loading-spinner />
+    }
+    <div class="grid grid-cols-5 gap-4 responsive-columns">
+        @if(this.auctionItemsService.data()) {
+            @if(this.auctionItemsService.data().items.length > 0) {
+                @for(auction of this.auctionItemsService.data().items; track $index) {
+                    
+                    <div class="card bg-base-100 xl:w-75 lg:w-80 md:w-80 sm:w-90 xs:w-95 shadow-sm border-1 border-dashed border-neutral">
+                        <figure class="flex justify-center items-center h-72" [routerLink]="['/auction-details', auction.id]">  
+                            <img
+                                [src]="getImageUrl(auction.imageId)"
+                                alt="Auction Image"  
+                                class="w-[250px] h-auto max-h-full object-contain auction-image"  
+                                [title]="auction.details.title"
+                            />  
+                        </figure>
+                        <div class="divider"></div>
+                        <div class="pb-1">
+                            <h2 class="card-title justify-center ms-1 me-1 text-center min-h-[54px] line-clamp-2 auction-title" [routerLink]="['/auction-details', auction.id]">
+                                {{auction.details.title}}                                                     
+                            </h2>        
+                        </div>
+                        <app-show-item-type [itemType]="auction.details.itemType" [size]="10" [cssJustify]="'justify-center items-center ps-1 pe-1 mb-1'" />
+                        <div class="pb-1">
+                            <div class="flex justify-between ps-1 pe-1">
+                                <div class="flex justify-between w-20">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 7.756a4.5 4.5 0 1 0 0 8.488M7.5 10.5h5.25m-5.25 3h5.25M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                    {{ auction.currentPrice | number:'2.2-2' }}
+                                </div>
+                                <div class="flex justify-between w-20" [style.color]="auction.bidCount > 0 ? 'green' : 'red'">
+                                    @if(auction.bidCount > 0) {
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                                        </svg>
+                                    } @else {
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />
+                                        </svg>
+                                    }                            
+                                    Bids: {{ auction.bidCount }}
+                                </div>
+                                <div class="flex justify-center ps-1 pe-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        </svg>
+                                        <p [style.color]="auction.expiration.expiresSoon ? 'red' : 'black'">{{ auction.expiration.expirationText }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                }
+            } @else {
+                <div class="flex justify-center ps-2">
+                    <p>No auctions matching the criteria.</p>
+                </div>
+            }            
+        }
+    </div>
+</div>
+<app-scroll-to-top />

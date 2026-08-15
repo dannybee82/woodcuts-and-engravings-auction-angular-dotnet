@@ -1,0 +1,25 @@
+.preview-image {
+    max-width: 300px;
+    height: auto;
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+    .preview-image {
+        max-width: 250px;
+        height: auto;
+    }
+}
+
+@media (min-width: 555px) and (max-width: 639px) {
+    .preview-image {
+        max-width: 250px;
+        height: auto;
+    }
+}
+
+@media (min-width: 475px) and (max-width: 554px) {
+    .preview-image {
+        max-width: 200px;
+        height: auto;
+    }
+}

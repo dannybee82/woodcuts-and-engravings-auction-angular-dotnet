@@ -1,0 +1,105 @@
+<form (submit)="submit($event)">
+    <div class="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col xl:justify-start lg:justify-evenly w-full gap-2 mt-1 pb-4">    
+        <div class="flex flex-col gap-2 lg:w-[35%] md:w-[75%] pe-2">
+            <div class="flex flex-row">
+                <h1 class="text-lg font-bold">{{ isUpdateMode() ? `Update Auction` : `Create Auction` }}</h1>
+            </div>
+            <div class="flex flex-row justify-between">
+                <h3>Title</h3>
+                <input type="text" placeholder="Auction item title" class="input" [formField]="form.details.title" autocomplete="off" />
+            </div>
+            <div class="flex flex-row justify-between">
+                <h3>Description</h3>
+                <textarea class="textarea" placeholder="Auction item description" [formField]="form.details.description"></textarea>
+            </div>
+            <div class="flex flex-row justify-between">
+                <h3>Item Type</h3>
+                <select class="select" [formField]="form.details.itemType">
+                    @for(option of allowedItems; track $index) {
+                        <option [value]="option">{{ option | lowercase | titlecase }}</option>
+                    }
+                </select>
+            </div>
+            <div class="flex flex-row justify-between">
+                <h3>Price</h3>
+                <input type="number" [formField]="form.currentPrice" step="0.01" placeholder="0.01" class="input" aria-label="Price in euros"  />
+            </div>
+            <div class="flex flex-row justify-between">
+                <h3>Is Open?</h3>
+                <input type="checkbox" class="toggle" [formField]="form.isOpen" />
+            </div>
+            <div class="flex flex-row justify-between">
+                <h3>Auction Length</h3>
+                <select class="select" (change)="valueToInt($event)" #auctionLengthUpdateElement>
+                    @for(option of auctionLengthDays; track $index) {
+                        <option [value]="option">{{option}} {{ option | i18nPlural:auctionLengthMapping }}</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="flex flex-col gap-2 pt-8">
+            <div class="flex flex-row mb-2">
+                    <app-open-file
+                        [buttonText]="'Open image file'"
+                        [fileExtensions]="'.jpg,.png,.jpeg,.gif'"
+                        [allowMultipleSelection]="false"
+                        (selectedFile)="loadFile($event)" />
+            </div>
+            <div class="flex flex-row mb-2">
+                @if(!isUpdateMode() && imagePreview() !== '') {
+                    <img class="preview-image me-1 ms-1 mt-2" 
+                        [src]="imagePreview()" 
+                        alt="Preview" 
+                        [title]="form.details.title().value()" 
+                    />
+                    <div class="column">
+                        <button
+                            type="button"
+                            class="btn btn-outline btn-error mt-2 mb-2"
+                            title="Remove image"
+                            (click)="removeFile()">     
+                            <div class="flex justify-between">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                                <span class="ms-1 text-md">Remove Image</span>
+                            </div>            
+                        </button>
+                    </div>
+                } 
+                @if(isUpdateMode()) {
+                    <img class="preview-image me-1 ms-1 mt-2" 
+                        [src]="imagePreview() !== '' ? imagePreview() : getImageUrl()" 
+                        alt="Preview" 
+                        [title]="form.details.title().value()" 
+                    />
+                        <div class="column">
+                        @if(imagePreview() !== '') {
+                            <button
+                                type="button"
+                                class="btn btn-outline btn-error mt-2 mb-2"
+                                title="Remove image"
+                                (click)="removeFile()">     
+                                <div class="flex justify-between">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                    <span class="ms-1 text-md">Remove Image</span>
+                                </div>            
+                            </button>
+                        }                            
+                    </div>
+                }                
+            </div>
+        </div>  
+    </div>
+    <div class="flex flex-row">
+        <button type="submit" class="btn" [class]="isSubmitting() ? 'btn-soft' : 'btn-active btn-primary'" [disabled]="isSubmitting()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+            {{ isUpdateMode() ? `Update` : `Create` }}
+        </button>
+    </div>
+</form>
+<app-toast />
