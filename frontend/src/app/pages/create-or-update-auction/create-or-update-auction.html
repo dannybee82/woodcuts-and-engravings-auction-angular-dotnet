@@ -5,15 +5,15 @@
                 <h1 class="text-lg font-bold">{{ isUpdateMode() ? `Update Auction` : `Create Auction` }}</h1>
             </div>
             <div class="flex flex-row justify-between">
-                <h3>Title</h3>
+                <h3 class="text-lg mt-2" class="text-lg mt-1">Title</h3>
                 <input type="text" placeholder="Auction item title" class="input" [formField]="form.details.title" autocomplete="off" />
             </div>
             <div class="flex flex-row justify-between">
-                <h3>Description</h3>
+                <h3 class="text-lg mt-2">Description</h3>
                 <textarea class="textarea" placeholder="Auction item description" [formField]="form.details.description"></textarea>
             </div>
             <div class="flex flex-row justify-between">
-                <h3>Item Type</h3>
+                <h3 class="text-lg mt-2">Item Type</h3>
                 <select class="select" [formField]="form.details.itemType">
                     @for(option of allowedItems; track $index) {
                         <option [value]="option">{{ option | lowercase | titlecase }}</option>
@@ -21,15 +21,15 @@
                 </select>
             </div>
             <div class="flex flex-row justify-between">
-                <h3>Price</h3>
+                <h3 class="text-lg mt-2">Price</h3>
                 <input type="number" [formField]="form.currentPrice" step="0.01" placeholder="0.01" class="input" aria-label="Price in euros"  />
             </div>
-            <div class="flex flex-row justify-between">
-                <h3>Is Open?</h3>
+            <div class="flex flex-row justify-between pt-1 pb-1">
+                <h3 class="text-lg mt-2">Is Open?</h3>
                 <input type="checkbox" class="toggle" [formField]="form.isOpen" />
             </div>
             <div class="flex flex-row justify-between">
-                <h3>Auction Length</h3>
+                <h3 class="text-lg mt-2">Auction Length</h3>
                 <select class="select" (change)="valueToInt($event)" #auctionLengthUpdateElement>
                     @for(option of auctionLengthDays; track $index) {
                         <option [value]="option">{{option}} {{ option | i18nPlural:auctionLengthMapping }}</option>
