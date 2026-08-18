@@ -66,6 +66,10 @@ export class PlaceBidForm implements OnDestroy {
         this.toastService.error('Can\'t place Bid'); 
         this.disablePlacingBid.set(false);
       }
+
+      if(this.auctionIsClosing()) {
+        this.confirmBid.set(undefined);
+      }
     });
   }
 
