@@ -24,7 +24,7 @@ namespace AuctionWoodcutsEngravingsWebApi.StartUp
             List<int> closedAuctions = allAuctions.Where(x => x.Status == AuctionStatus.CLOSED).Select(x => x.Id).ToList();
 
             // When all Auctions are expired -> reopen closed auctions that are not won.
-            if (allAuctions.Count() == wonAuctions.Count() + closedAuctions.Count())
+            if (allAuctions.Count() >= wonAuctions.Count() + closedAuctions.Count())
             {
                 foreach (var auction in allAuctions)
                 {
