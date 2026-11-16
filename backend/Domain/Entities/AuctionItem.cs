@@ -22,8 +22,8 @@ namespace Domain.Entities
         public AuctionItemDetail Detail { get; set; }
 
         [ForeignKey("Image")]
-        public int AuctionItemImageId { get; set; }
-        public AuctionItemImage Image { get; set; }
+        public int? AuctionItemImageId { get; set; }
+        public AuctionItemImage? Image { get; set; }
 
         // Denormalized cache columns (fast reads, no aggregation)  
         public decimal CurrentPrice { get; set; }

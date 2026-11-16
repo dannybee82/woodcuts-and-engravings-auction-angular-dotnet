@@ -233,7 +233,7 @@ namespace Application.Services
                     throw new Exception("Not allowed file format.");
                 }
 
-                var image = await _auctionItemImageRepository.GetById(recordAuction.AuctionItemImageId);
+                var image = await _auctionItemImageRepository.GetById(recordAuction.AuctionItemImageId ?? 0);
 
                 if(image != null)
                 {

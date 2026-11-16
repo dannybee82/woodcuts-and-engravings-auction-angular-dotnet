@@ -11,6 +11,7 @@ using Hangfire;
 using Hangfire.PostgreSql;
 using Infrastructure.Context;
 using Infrastructure.Repositories;
+using Infrastructure.SeedData;
 using Infrastructure.Transactions;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
@@ -45,7 +46,7 @@ builder.Services.AddCors(options =>
         policy.WithOrigins("http://localhost:4200", "https://localhost:4200", "http://localhost") 
               .AllowAnyHeader()
               .AllowAnyMethod()
-              .AllowCredentials());   // <-- the missing piece
+              .AllowCredentials());
 });
 
 // Hangfire
@@ -121,10 +122,11 @@ builder.Services.AddScoped<IHelpersService, HelpersService>();
 builder.Services.AddSingleton<IAllowedFileFormatList, AllowedFileFormatList>((IServiceProvider sp) => allowedFileList);
 builder.Services.AddSingleton<IFileFormatInspector>(new FileFormatInspector());
 
-// Update auctions after server shut-down, etc.
-builder.Services.AddHostedService<AuctionCatchupService>();
 // When all Auctions are expired -> reopen closed auctions that are not won.
 builder.Services.AddHostedService<CheckAuctions>();
+
+// Update auctions after server shut-down, etc.
+builder.Services.AddHostedService<AuctionCatchupService>();
 
 builder.Services.AddControllers();
 
@@ -134,10 +136,18 @@ CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
 
 var app = builder.Build();
 
+// Add images to Database, when not already added yet.
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await db.Database.MigrateAsync();
+    await SeedImages.SeedAsync(db);
+}
+
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
-    app.MapOpenApi();
+app.MapOpenApi();
     app.MapScalarApiReference();   // UI at /scalar/v1
 //}
 

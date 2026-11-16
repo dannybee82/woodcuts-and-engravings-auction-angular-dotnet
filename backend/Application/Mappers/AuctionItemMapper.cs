@@ -20,7 +20,7 @@ namespace Application.Mappers
                 Id = entity.Id,
                 IsOpen = entity.Status == AuctionStatus.OPEN ? true : false,
                 Details = AuctionItemDetailMapper.ToDto(entity.Detail),
-                ImageId = entity.AuctionItemImageId,                 
+                ImageId = entity.AuctionItemImageId != null ? entity.AuctionItemImageId ?? 0 : 0,
                 CurrentPrice = entity.CurrentPrice,
                 BidCount = entity.BidCount,
                 EndsAt = entity.EndsAt,
