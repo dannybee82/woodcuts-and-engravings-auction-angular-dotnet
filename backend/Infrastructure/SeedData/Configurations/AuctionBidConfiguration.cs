@@ -227,6 +227,126 @@ namespace Infrastructure.SeedData.Configurations
                     UserId = 3,
                     Amount = 35.00m,
                     PlacedAt = new DateTime(2026, 8, 6, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 28,
+                    AuctionItemId = 22,
+                    UserId = 3,
+                    Amount = 34.99m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 29,
+                    AuctionItemId = 23,
+                    UserId = 3,
+                    Amount = 39.99m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 30,
+                    AuctionItemId = 23,
+                    UserId = 1,
+                    Amount = 54.00m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 31,
+                    AuctionItemId = 23,
+                    UserId = 2,
+                    Amount = 64.99m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 32,
+                    AuctionItemId = 28,
+                    UserId = 4,
+                    Amount = 29.99m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 33,
+                    AuctionItemId = 28,
+                    UserId = 4,
+                    Amount = 44.99m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 34,
+                    AuctionItemId = 28,
+                    UserId = 1,
+                    Amount = 51.99m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 35,
+                    AuctionItemId = 28,
+                    UserId = 2,
+                    Amount = 59.99m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 36,
+                    AuctionItemId = 28,
+                    UserId = 3,
+                    Amount = 68.45m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 37,
+                    AuctionItemId = 28,
+                    UserId = 4,
+                    Amount = 77.25m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 38,
+                    AuctionItemId = 28,
+                    UserId = 1,
+                    Amount = 89.65m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 39,
+                    AuctionItemId = 29,
+                    UserId = 4,
+                    Amount = 75.25m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 40,
+                    AuctionItemId = 30,
+                    UserId = 1,
+                    Amount = 75.99m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 41,
+                    AuctionItemId = 30,
+                    UserId = 3,
+                    Amount = 110.00m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
+                },
+                new AuctionBid()
+                {
+                    Id = 42,
+                    AuctionItemId = 30,
+                    UserId = 2,
+                    Amount = 135.85m,
+                    PlacedAt = new DateTime(2026, 11, 17, 0, 0, 0, DateTimeKind.Utc),
                 }
             );
         }

@@ -183,7 +183,17 @@ namespace Infrastructure.Migrations
                     { 17, "A playful engraving titled 'Elysia - Muse of Wishes'. Unfortunately, the engraving is slightly damaged.", 2, "Elysia - Muse of Wishes" },
                     { 18, "This engraving shows the expert jewelry thief 'Marcella Dupond' at work in her field: stealing jewels and jewelry.", 2, "Marcella Dupond - Expert Jewel Thief" },
                     { 19, "Detailed and colored engraving depicting an unknown Lady in 18th-century attire.", 2, "18th century Lady standing near the Window" },
-                    { 20, "This colored engraving depicts a 19th-century Lady wearing a very fine (and precious) freshwater pearl necklace.", 2, "Victorian Lady with exquisite pearl necklace" }
+                    { 20, "This colored engraving depicts a 19th-century Lady wearing a very fine (and precious) freshwater pearl necklace.", 2, "Victorian Lady with exquisite pearl necklace" },
+                    { 21, "A woodcut depicting an exceptionally beautiful woman - with the name Juniper Hale - surrounded by floral motifs.", 1, "Juniper Hale in the Secret Garden" },
+                    { 22, "This engraving alludes to Mary Magdalene, who is identifiable by the jar of ointment.", 2, "The Alabaster Jar" },
+                    { 23, "The woodcut depicts a woman walking from the water toward the viewer under the full moon.", 1, "The Lady of the Lake" },
+                    { 24, "This engraving depicts an exotic woman from a distant, sunny land, dressed in traditional black attire adorned with gold-colored brocade.", 2, "Ebony and Gold" },
+                    { 25, "The woodcut depicts an indigenous woman situated in a very old forest.", 1, "Song of the Ancient Grove" },
+                    { 26, "In this engraving, an angel of judgment can be seen holding a sword, with light emanating from the background.", 2, "The Celestial Edict" },
+                    { 27, "The woodcut depicts a muse from antiquity standing with her back against a wall, with classical columns in the background.", 1, "Silence and Columns: A Muse Contemplative" },
+                    { 28, "A mysterious engraving depicting a woman in nightgown, holding a candle in her hands.", 2, "Vigil at Midnight" },
+                    { 29, "This woodcut is a reinterpretation of the painting by Frederic Leighton titled \"The Spirit of the Summit\".", 1, "The Revised Spirit of the Summit" },
+                    { 30, "This engraving is highly symbolic: a knight kneels before a statue, with lightning and a temple visible in the background, while an apparition of a woman appears within the dark clouds.", 2, "The Knight and his Apparition" }
                 });
 
             migrationBuilder.InsertData(
@@ -224,7 +234,17 @@ namespace Infrastructure.Migrations
                     { 17, 17, null, 14, 0, new DateTime(2026, 8, 13, 0, 0, 0, 0, DateTimeKind.Utc), 25.00m, new DateTimeOffset(new DateTime(2026, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
                     { 18, 18, null, 14, 2, new DateTime(2026, 8, 13, 0, 0, 0, 0, DateTimeKind.Utc), 35.00m, new DateTimeOffset(new DateTime(2026, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
                     { 19, 19, null, 14, 0, new DateTime(2026, 8, 13, 0, 0, 0, 0, DateTimeKind.Utc), 25.00m, new DateTimeOffset(new DateTime(2026, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
-                    { 20, 20, null, 14, 0, new DateTime(2026, 8, 13, 0, 0, 0, 0, DateTimeKind.Utc), 25.00m, new DateTimeOffset(new DateTime(2026, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 }
+                    { 20, 20, null, 14, 0, new DateTime(2026, 8, 13, 0, 0, 0, 0, DateTimeKind.Utc), 25.00m, new DateTimeOffset(new DateTime(2026, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 21, 21, null, 14, 0, new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc), 25.00m, new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 22, 22, null, 14, 1, new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc), 34.99m, new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 23, 23, null, 14, 3, new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc), 64.99m, new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 24, 24, null, 14, 0, new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc), 25.00m, new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 25, 25, null, 14, 0, new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc), 25.00m, new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 26, 26, null, 14, 0, new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc), 25.00m, new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 27, 27, null, 14, 0, new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc), 25.00m, new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 28, 28, null, 14, 7, new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc), 89.95m, new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 29, 29, null, 14, 1, new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc), 75.25m, new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 30, 30, null, 14, 3, new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc), 135.85m, new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -259,7 +279,22 @@ namespace Infrastructure.Migrations
                     { 24, 185.99m, 9, new DateTimeOffset(new DateTime(2026, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 3 },
                     { 25, 30.00m, 14, new DateTimeOffset(new DateTime(2026, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 2 },
                     { 26, 30.00m, 18, new DateTimeOffset(new DateTime(2026, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
-                    { 27, 35.00m, 18, new DateTimeOffset(new DateTime(2026, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 3 }
+                    { 27, 35.00m, 18, new DateTimeOffset(new DateTime(2026, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 3 },
+                    { 28, 34.99m, 22, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 3 },
+                    { 29, 39.99m, 23, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 3 },
+                    { 30, 54.00m, 23, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 31, 64.99m, 23, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 2 },
+                    { 32, 29.99m, 28, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 4 },
+                    { 33, 44.99m, 28, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 4 },
+                    { 34, 51.99m, 28, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 35, 59.99m, 28, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 2 },
+                    { 36, 68.45m, 28, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 3 },
+                    { 37, 77.25m, 28, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 4 },
+                    { 38, 89.65m, 28, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 39, 75.25m, 29, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 4 },
+                    { 40, 75.99m, 30, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 1 },
+                    { 41, 110.00m, 30, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 3 },
+                    { 42, 135.85m, 30, new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), 2 }
                 });
 
             migrationBuilder.CreateIndex(

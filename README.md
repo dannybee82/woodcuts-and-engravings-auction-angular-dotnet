@@ -105,6 +105,8 @@ At startup of the WebApi, the images are added to the database once.
 
 \- Updated some _Nuget packages_ of the _WebApi_.
 
+\- Added 10 new images (5 new woodcuts and 5 new engravings).
+
 **Frontend:**
 
 \- Updated packages.

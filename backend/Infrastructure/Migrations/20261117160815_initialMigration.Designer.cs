@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261116185633_initialMigration")]
+    [Migration("20261117160815_initialMigration")]
     partial class initialMigration
     {
         /// <inheritdoc />
@@ -269,6 +269,126 @@ namespace Infrastructure.Migrations
                             AuctionItemId = 18,
                             PlacedAt = new DateTimeOffset(new DateTime(2026, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             UserId = 3
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Amount = 34.99m,
+                            AuctionItemId = 22,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Amount = 39.99m,
+                            AuctionItemId = 23,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Amount = 54.00m,
+                            AuctionItemId = 23,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Amount = 64.99m,
+                            AuctionItemId = 23,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Amount = 29.99m,
+                            AuctionItemId = 28,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Amount = 44.99m,
+                            AuctionItemId = 28,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Amount = 51.99m,
+                            AuctionItemId = 28,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Amount = 59.99m,
+                            AuctionItemId = 28,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Amount = 68.45m,
+                            AuctionItemId = 28,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Amount = 77.25m,
+                            AuctionItemId = 28,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Amount = 89.65m,
+                            AuctionItemId = 28,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Amount = 75.25m,
+                            AuctionItemId = 29,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Amount = 75.99m,
+                            AuctionItemId = 30,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Amount = 110.00m,
+                            AuctionItemId = 30,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Amount = 135.85m,
+                            AuctionItemId = 30,
+                            PlacedAt = new DateTimeOffset(new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            UserId = 2
                         });
                 });
 
@@ -558,6 +678,126 @@ namespace Infrastructure.Migrations
                             EndsAt = new DateTimeOffset(new DateTime(2026, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Status = 1,
                             Version = 0u
+                        },
+                        new
+                        {
+                            Id = 21,
+                            AuctionItemDetailId = 21,
+                            AuctionLength = 14,
+                            BidCount = 0,
+                            CreatedAt = new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CurrentPrice = 25.00m,
+                            EndsAt = new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Status = 1,
+                            Version = 0u
+                        },
+                        new
+                        {
+                            Id = 22,
+                            AuctionItemDetailId = 22,
+                            AuctionLength = 14,
+                            BidCount = 1,
+                            CreatedAt = new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CurrentPrice = 34.99m,
+                            EndsAt = new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Status = 1,
+                            Version = 0u
+                        },
+                        new
+                        {
+                            Id = 23,
+                            AuctionItemDetailId = 23,
+                            AuctionLength = 14,
+                            BidCount = 3,
+                            CreatedAt = new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CurrentPrice = 64.99m,
+                            EndsAt = new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Status = 1,
+                            Version = 0u
+                        },
+                        new
+                        {
+                            Id = 24,
+                            AuctionItemDetailId = 24,
+                            AuctionLength = 14,
+                            BidCount = 0,
+                            CreatedAt = new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CurrentPrice = 25.00m,
+                            EndsAt = new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Status = 1,
+                            Version = 0u
+                        },
+                        new
+                        {
+                            Id = 25,
+                            AuctionItemDetailId = 25,
+                            AuctionLength = 14,
+                            BidCount = 0,
+                            CreatedAt = new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CurrentPrice = 25.00m,
+                            EndsAt = new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Status = 1,
+                            Version = 0u
+                        },
+                        new
+                        {
+                            Id = 26,
+                            AuctionItemDetailId = 26,
+                            AuctionLength = 14,
+                            BidCount = 0,
+                            CreatedAt = new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CurrentPrice = 25.00m,
+                            EndsAt = new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Status = 1,
+                            Version = 0u
+                        },
+                        new
+                        {
+                            Id = 27,
+                            AuctionItemDetailId = 27,
+                            AuctionLength = 14,
+                            BidCount = 0,
+                            CreatedAt = new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CurrentPrice = 25.00m,
+                            EndsAt = new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Status = 1,
+                            Version = 0u
+                        },
+                        new
+                        {
+                            Id = 28,
+                            AuctionItemDetailId = 28,
+                            AuctionLength = 14,
+                            BidCount = 7,
+                            CreatedAt = new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CurrentPrice = 89.95m,
+                            EndsAt = new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Status = 1,
+                            Version = 0u
+                        },
+                        new
+                        {
+                            Id = 29,
+                            AuctionItemDetailId = 29,
+                            AuctionLength = 14,
+                            BidCount = 1,
+                            CreatedAt = new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CurrentPrice = 75.25m,
+                            EndsAt = new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Status = 1,
+                            Version = 0u
+                        },
+                        new
+                        {
+                            Id = 30,
+                            AuctionItemDetailId = 30,
+                            AuctionLength = 14,
+                            BidCount = 3,
+                            CreatedAt = new DateTime(2026, 11, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CurrentPrice = 135.85m,
+                            EndsAt = new DateTimeOffset(new DateTime(2026, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Status = 1,
+                            Version = 0u
                         });
                 });
 
@@ -724,6 +964,76 @@ namespace Infrastructure.Migrations
                             Description = "This colored engraving depicts a 19th-century Lady wearing a very fine (and precious) freshwater pearl necklace.",
                             ItemType = 2,
                             Title = "Victorian Lady with exquisite pearl necklace"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Description = "A woodcut depicting an exceptionally beautiful woman - with the name Juniper Hale - surrounded by floral motifs.",
+                            ItemType = 1,
+                            Title = "Juniper Hale in the Secret Garden"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Description = "This engraving alludes to Mary Magdalene, who is identifiable by the jar of ointment.",
+                            ItemType = 2,
+                            Title = "The Alabaster Jar"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Description = "The woodcut depicts a woman walking from the water toward the viewer under the full moon.",
+                            ItemType = 1,
+                            Title = "The Lady of the Lake"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Description = "This engraving depicts an exotic woman from a distant, sunny land, dressed in traditional black attire adorned with gold-colored brocade.",
+                            ItemType = 2,
+                            Title = "Ebony and Gold"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Description = "The woodcut depicts an indigenous woman situated in a very old forest.",
+                            ItemType = 1,
+                            Title = "Song of the Ancient Grove"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Description = "In this engraving, an angel of judgment can be seen holding a sword, with light emanating from the background.",
+                            ItemType = 2,
+                            Title = "The Celestial Edict"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Description = "The woodcut depicts a muse from antiquity standing with her back against a wall, with classical columns in the background.",
+                            ItemType = 1,
+                            Title = "Silence and Columns: A Muse Contemplative"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Description = "A mysterious engraving depicting a woman in nightgown, holding a candle in her hands.",
+                            ItemType = 2,
+                            Title = "Vigil at Midnight"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Description = "This woodcut is a reinterpretation of the painting by Frederic Leighton titled \"The Spirit of the Summit\".",
+                            ItemType = 1,
+                            Title = "The Revised Spirit of the Summit"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Description = "This engraving is highly symbolic: a knight kneels before a statue, with lightning and a temple visible in the background, while an apparition of a woman appears within the dark clouds.",
+                            ItemType = 2,
+                            Title = "The Knight and his Apparition"
                         });
                 });
 

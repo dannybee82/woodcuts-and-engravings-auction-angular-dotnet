@@ -111,7 +111,57 @@ namespace Infrastructure.SeedData
             {
                 ContentType = "image/jpeg",
                 Data = SeedDataLoader.LoadImage("engraving_010.jpeg"),
-            }
+            },
+            new AuctionItemImage()
+            {
+                ContentType = "image/jpeg",
+                Data = SeedDataLoader.LoadImage("woodcut_011.jpeg"),
+            },
+            new AuctionItemImage()
+            {
+                ContentType = "image/jpeg",
+                Data = SeedDataLoader.LoadImage("engraving_011.jpg"),
+            },
+            new AuctionItemImage()
+            {
+                ContentType = "image/jpeg",
+                Data = SeedDataLoader.LoadImage("woodcut_012.jpeg"),
+            },
+            new AuctionItemImage()
+            {
+                ContentType = "image/jpeg",
+                Data = SeedDataLoader.LoadImage("engraving_012.jpg"),
+            },
+            new AuctionItemImage()
+            {
+                ContentType = "image/jpeg",
+                Data = SeedDataLoader.LoadImage("woodcut_013.jpeg"),
+            },
+            new AuctionItemImage()
+            {
+                ContentType = "image/jpeg",
+                Data = SeedDataLoader.LoadImage("engraving_013.jpeg"),
+            },
+            new AuctionItemImage()
+            {
+                ContentType = "image/jpeg",
+                Data = SeedDataLoader.LoadImage("woodcut_014.jpeg"),
+            },
+            new AuctionItemImage()
+            {
+                ContentType = "image/jpeg",
+                Data = SeedDataLoader.LoadImage("engraving_014.jpeg"),
+            },
+            new AuctionItemImage()
+            {
+                ContentType = "image/jpeg",
+                Data = SeedDataLoader.LoadImage("woodcut_015.jpeg"),
+            },
+            new AuctionItemImage()
+            {
+                ContentType = "image/jpeg",
+                Data = SeedDataLoader.LoadImage("engraving_015.jpeg"),
+            },
         };
 
         public static async Task SeedAsync(AppDbContext db)
